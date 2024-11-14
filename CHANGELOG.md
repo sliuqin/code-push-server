@@ -2,8 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [2.1.6](https://github.com/shm-open/code-push-server/compare/v2.1.5...v2.1.6) (2022-07-17)
+### [2.1.7] (2024-11-14)
 
+1. 使用 dotenv 加载环境变量
+2. 添加 @types/express 以解决编译报错的问题。
+
+
+### [2.1.6](https://github.com/shm-open/code-push-server/compare/v2.1.5...v2.1.6) (2022-07-17)
 
 ### Bug Fixes
 
@@ -22,7 +27,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.1.4](https://github.com/shm-open/code-push-server/compare/v2.1.3...v2.1.4) (2022-04-26)
 
-
 ### Bug Fixes
 
 * **deps:** update dependency aws-sdk to v2.1121.0 ([f59e9ae](https://github.com/shm-open/code-push-server/commit/f59e9ae1d2605b2f5938fc6e8dde6c8e3a20711f))
@@ -36,7 +40,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.1.3](https://github.com/shm-open/code-push-server/compare/v2.1.2...v2.1.3) (2022-04-07)
 
-
 ### Bug Fixes
 
 * **deps:** update dependency aws-sdk to v2.1109.0 ([1d3cab0](https://github.com/shm-open/code-push-server/commit/1d3cab0c310ca39398e65d334970add1e9119529))
@@ -48,7 +51,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.1.2](https://github.com/shm-open/code-push-server/compare/v2.1.1...v2.1.2) (2022-03-25)
 
-
 ### Bug Fixes
 
 * change password success prompts localized message ([21c987a](https://github.com/shm-open/code-push-server/commit/21c987ad1e9e72a888965f42cb808294c4701477))
@@ -58,18 +60,15 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.1.1](https://github.com/shm-open/code-push-server/compare/v2.1.0...v2.1.1) (2022-03-23)
 
-
 ### Bug Fixes
 
 * zh locale support ([6a55bc5](https://github.com/shm-open/code-push-server/commit/6a55bc57f0b28d9b0000a886dc302e6772719ea0))
 
 ## [2.1.0](https://github.com/shm-open/code-push-server/compare/v2.0.3...v2.1.0) (2022-03-23)
 
-
 ### Features
 
 * **app:** add i18n support ([57a6e98](https://github.com/shm-open/code-push-server/commit/57a6e98df10bfcfc14badd3b4a399815e3c4349a))
-
 
 ### Bug Fixes
 
@@ -78,7 +77,6 @@ All notable changes to this project will be documented in this file. See [standa
 * **deps:** update dependency yargs to v17.4.0 ([763c924](https://github.com/shm-open/code-push-server/commit/763c924ee0a77db170ef307f0726f36da7e5ac0b))
 
 ### [2.0.3](https://github.com/shm-open/code-push-server/compare/v2.0.2...v2.0.3) (2022-03-09)
-
 
 ### Bug Fixes
 
@@ -89,13 +87,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.0.2](https://github.com/shm-open/code-push-server/compare/v2.0.1...v2.0.2) (2022-02-21)
 
-
 ### Bug Fixes
 
 * log stringified account info ([85a09fa](https://github.com/shm-open/code-push-server/commit/85a09fad62bd21808461debba7140e1732851622))
 
 ### [2.0.1](https://github.com/shm-open/code-push-server/compare/v2.0.0...v2.0.1) (2022-02-21)
-
 
 ### Bug Fixes
 
@@ -110,7 +106,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [2.0.0](https://github.com/shm-open/code-push-server/compare/v1.2.0...v2.0.0) (2022-02-10)
 
-
 ### ⚠ BREAKING CHANGES
 
 * drop is_use_diff_text support
@@ -121,7 +116,6 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 * drop upyun support ([57bbdc5](https://github.com/shm-open/code-push-server/commit/57bbdc58d7c9174f4d00ad9ec1525f5f828e00b4))
-
 
 ### Bug Fixes
 
@@ -137,11 +131,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [1.2.0](https://github.com/shm-open/code-push-server/compare/v1.1.1...v1.2.0) (2022-02-08)
 
-
 ### Features
 
 * add typescript support ([6b1a5d7](https://github.com/shm-open/code-push-server/commit/6b1a5d7d8d836ab804f32c3931f4c57bde5f5dde))
-
 
 ### Bug Fixes
 
@@ -162,7 +154,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.1.1](https://github.com/shm-open/code-push-server/compare/v1.1.0...v1.1.1) (2021-11-23)
 
-
 ### Bug Fixes
 
 * make all config items accessible with environment variables ([187c198](https://github.com/shm-open/code-push-server/commit/187c198bc84acaf835c84f434438a8eb40720ad1))
@@ -170,11 +161,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [1.1.0](https://github.com/shm-open/code-push-server/compare/v1.0.6...v1.1.0) (2021-11-23)
 
-
 ### Features
 
 * check config flag `common.allowRegistration` to allow registration ([53ffab6](https://github.com/shm-open/code-push-server/commit/53ffab6a2b18abd9468a87370c2300bf27fc27ec))
-
 
 ### Bug Fixes
 
@@ -198,20 +187,17 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.0.6](https://github.com/shm-open/code-push-server/compare/v1.0.5...v1.0.6) (2021-08-23)
 
-
 ### Bug Fixes
 
 * skip find diff package if check update without a client side packageHash ([d00a8cc](https://github.com/shm-open/code-push-server/commit/d00a8cc6479ebe2c5395ef9214ffc1af6497fd3c))
 
 ### [1.0.5](https://github.com/shm-open/code-push-server/compare/v1.0.4...v1.0.5) (2021-08-23)
 
-
 ### Bug Fixes
 
 * omit undefined query condition for no package_hash update check ([6dbe8df](https://github.com/shm-open/code-push-server/commit/6dbe8dfa192331adcf642d0804ed68362c3e2370))
 
 ### [1.0.4](https://github.com/shm-open/code-push-server/compare/v1.0.3...v1.0.4) (2021-08-23)
-
 
 ### Bug Fixes
 
@@ -221,7 +207,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.0.3](https://github.com/shm-open/code-push-server/compare/v1.0.2...v1.0.3) (2021-08-23)
 
-
 ### Bug Fixes
 
 * **deps:** update dependency aws-sdk to v2.973.0 ([0880204](https://github.com/shm-open/code-push-server/commit/0880204282c2db605800788bba3ff9ba458a6874))
@@ -229,7 +214,6 @@ All notable changes to this project will be documented in this file. See [standa
 * support REDIS_PASSWORD, REDIS_DB env var in default config ([e7fe615](https://github.com/shm-open/code-push-server/commit/e7fe6159a2cf8b180b0eb2993fe9fef239ab85a5))
 
 ### [1.0.2](https://github.com/shm-open/code-push-server/compare/v1.0.1...v1.0.2) (2021-08-19)
-
 
 ### Bug Fixes
 
@@ -278,7 +262,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.0.1](https://github.com/shm-open/code-push-server/compare/v1.0.0...v1.0.1) (2021-08-19)
 
-
 ### Bug Fixes
 
 * **deps:** pin dependencies ([1822c0f](https://github.com/shm-open/code-push-server/commit/1822c0f99adee270a15f343275316a5de725a0f3))
@@ -292,10 +275,11 @@ All notable changes to this project will be documented in this file. See [standa
 ## 0.5.x
 
 ## 新特性
+
 - 针对文本增量更新进行优化，使用google `diff-match-patch` 算法计算差异
-   - react-native-code-push Android客户端适配,需要合并https://github.com/Microsoft/react-native-code-push/pull/1393, 才能正常使用文本增量更新功能。
-  - react-native-code-push iOS客户端适配 (需要合并https://github.com/Microsoft/react-native-code-push/pull/1399)
-  - react-native-code-push Windows客户端适配 (进行中)
+    - react-native-code-push Android客户端适配,需要合并https://github.com/Microsoft/react-native-code-push/pull/1393, 才能正常使用文本增量更新功能。
+    - react-native-code-push iOS客户端适配 (需要合并https://github.com/Microsoft/react-native-code-push/pull/1399)
+    - react-native-code-push Windows客户端适配 (进行中)
 
 ## fixbug
 
@@ -305,7 +289,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## 如何升级到该版本
 
-###  升级数据库
+### 升级数据库
 
 `$ npm run upgrade`
 
@@ -313,29 +297,29 @@ or
 
 `$ code-push-server-db upgrade`
 
-
 ## 0.4.x
 
 ### 新特性
 
 - targetBinaryVersion 支持正则匹配, `deployments_versions`新增字段`min_version`,`max_version`
-  - `*` 匹配所有版本
-  - `1.2.3` 匹配特定版本`1.2.3`
-  - `1.2`/`1.2.*` 匹配所有1.2补丁版本 
-  - `>=1.2.3<1.3.7`
-  - `~1.2.3` 匹配`>=1.2.3<1.3.0`
-  - `^1.2.3` 匹配`>=1.2.3<2.0.0`
+    - `*` 匹配所有版本
+    - `1.2.3` 匹配特定版本`1.2.3`
+    - `1.2`/`1.2.*` 匹配所有1.2补丁版本
+    - `>=1.2.3<1.3.7`
+    - `~1.2.3` 匹配`>=1.2.3<1.3.0`
+    - `^1.2.3` 匹配`>=1.2.3<2.0.0`
 - 添加docker编排服务部署，更新文档
-- Support Tencent cloud cos storageType  
+- Support Tencent cloud cos storageType
 
 ## 如何升级到该版本
 
--  升级数据库
-`$ ./bin/db upgrade`
-or
-`$ mysql codepush < ./sql/codepush-v0.4.0-patch.sql`
+- 升级数据库
+  `$ ./bin/db upgrade`
+  or
+  `$ mysql codepush < ./sql/codepush-v0.4.0-patch.sql`
 
 - 处理存量数据
+
 ``` shell
    $ git clone https://github.com/lisong/tools
    $ cd tools
@@ -348,9 +332,9 @@ or
 
 - 支持灰度发布
 - 适配`code-push app add` 命令，应用不再以名字区分平台，而是以类型区分平台
-  - 数据库表apps新增字段`os`,`platform`
+    - 数据库表apps新增字段`os`,`platform`
 - 完善`code-push release/release-react/release-cordova` 命令
-  - 数据库表packages新增`is_disabled`,`rollout`字段
+    - 数据库表packages新增`is_disabled`,`rollout`字段
 - 适配`code-push patch`命令
 - 新增`log_report_download`,`log_report_deploy`日志表
 - 升级npm依赖包

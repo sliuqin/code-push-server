@@ -5,11 +5,11 @@ import ALY from 'aliyun-sdk';
 import AWS from 'aws-sdk';
 import COS from 'cos-nodejs-sdk-v5';
 import fsextra from 'fs-extra';
-import { Logger } from 'kv-logger';
+import {Logger} from 'kv-logger';
 import _ from 'lodash';
 import qiniu from 'qiniu';
-import { AppError } from '../app-error';
-import { config } from '../config';
+import {AppError} from '../app-error';
+import {config} from '../config';
 
 function uploadFileToLocal(key: string, filePath: string, logger: Logger): Promise<void> {
     return new Promise((resolve, reject) => {
@@ -77,7 +77,7 @@ function uploadFileToLocal(key: string, filePath: string, logger: Logger): Promi
 
 function uploadFileToS3(key: string, filePath: string, logger: Logger): Promise<void> {
     return new Promise((resolve, reject) => {
-        logger.info('try uploadFileToS3', { key });
+        logger.info('try uploadFileToS3', {key});
         AWS.config.update({
             accessKeyId: _.get(config, 's3.accessKeyId'),
             secretAccessKey: _.get(config, 's3.secretAccessKey'),
@@ -101,7 +101,7 @@ function uploadFileToS3(key: string, filePath: string, logger: Logger): Promise<
                     if (error) {
                         reject(new AppError(error));
                     } else {
-                        logger.info('uploadFileToS3 success', { key });
+                        logger.info('uploadFileToS3 success', {key});
                         resolve();
                     }
                 },
@@ -111,7 +111,7 @@ function uploadFileToS3(key: string, filePath: string, logger: Logger): Promise<
 }
 
 function uploadFileToOSS(key: string, filePath: string, logger: Logger): Promise<void> {
-    logger.info('try uploadFileToOSS', { key });
+    logger.info('try uploadFileToOSS', {key});
     const ossStream = ALYOSSStream(
         new ALY.OSS({
             accessKeyId: _.get(config, 'oss.accessKeyId'),
@@ -135,7 +135,7 @@ function uploadFileToOSS(key: string, filePath: string, logger: Logger): Promise
         });
 
         upload.on('uploaded', () => {
-            logger.info('uploadFileToOSS success', { key });
+            logger.info('uploadFileToOSS success', {key});
             resolve();
         });
         fs.createReadStream(filePath).pipe(upload);
@@ -152,7 +152,7 @@ function getUploadTokenQiniu(mac: qiniu.auth.digest.Mac, bucket: string, key: st
 
 function uploadFileToQiniu(key: string, filePath: string, logger: Logger): Promise<void> {
     return new Promise((resolve, reject) => {
-        logger.info('try uploadFileToQiniu', { key });
+        logger.info('try uploadFileToQiniu', {key});
         const accessKey = _.get(config, 'qiniu.accessKey');
         const secretKey = _.get(config, 'qiniu.secretKey');
         const bucket = _.get(config, 'qiniu.bucketName', '');
@@ -165,7 +165,7 @@ function uploadFileToQiniu(key: string, filePath: string, logger: Logger): Promi
                 return;
             }
             if (respInfo.statusCode === 200) {
-                logger.info('uploadFileToQiniu file exists, skip upload', { key });
+                logger.info('uploadFileToQiniu file exists, skip upload', {key});
                 resolve();
                 return;
             }
@@ -191,7 +191,7 @@ function uploadFileToQiniu(key: string, filePath: string, logger: Logger): Promi
                     }
                     // 上传成功， 处理返回值
                     if (resInfo.statusCode === 200) {
-                        logger.info('uploadFileToQiniu success', { key });
+                        logger.info('uploadFileToQiniu success', {key});
                         return resolve();
                     }
                     return reject(new AppError(resBody.error));
@@ -203,7 +203,11 @@ function uploadFileToQiniu(key: string, filePath: string, logger: Logger): Promi
 
 function uploadFileToTencentCloud(key: string, filePath: string, logger: Logger): Promise<void> {
     return new Promise((resolve, reject) => {
-        logger.info('try uploadFileToTencentCloud', { key });
+        logger.info('try uploadFileToTencentCloud', {key});
+        if (!_.isEmpty(_.get(config, 'tencentcloud.prefix', ''))) {
+            // eslint-disable-next-line no-param-reassign
+            key = `${_.get(config, 'tencentcloud.prefix')}/${key}`;
+        }
         const cosIn = new COS({
             SecretId: _.get(config, 'tencentcloud.accessKeyId'),
             SecretKey: _.get(config, 'tencentcloud.secretAccessKey'),
@@ -219,7 +223,7 @@ function uploadFileToTencentCloud(key: string, filePath: string, logger: Logger)
                 if (err) {
                     reject(new AppError(err.message));
                 } else {
-                    logger.info('uploadFileToTencentCloud success', { key });
+                    logger.info('uploadFileToTencentCloud success', {key});
                     resolve();
                 }
             },
@@ -228,7 +232,7 @@ function uploadFileToTencentCloud(key: string, filePath: string, logger: Logger)
 }
 
 export function uploadFileToStorage(key: string, filePath: string, logger: Logger): Promise<void> {
-    const { storageType } = config.common;
+    const {storageType} = config.common;
     switch (storageType) {
         case 'local':
             return uploadFileToLocal(key, filePath, logger);

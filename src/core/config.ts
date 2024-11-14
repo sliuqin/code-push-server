@@ -71,6 +71,8 @@ export const config = {
         secretAccessKey: process.env.COS_SECRET_ACCESS_KEY,
         bucketName: process.env.COS_BUCKET_NAME,
         region: process.env.COS_REGION,
+        // Key prefix in object key
+        prefix: process.env.COS_PREFIX,
         // binary files download host address
         downloadUrl: process.env.COS_DOWNLOAD_URL || process.env.DOWNLOAD_URL,
     },

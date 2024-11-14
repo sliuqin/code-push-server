@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-
+require('dotenv').config();
 import http from 'http';
-import { logger } from 'kv-logger';
+import {logger} from 'kv-logger';
 import _ from 'lodash';
 import validator from 'validator';
-import { app } from './app';
-import { CURRENT_DB_VERSION } from './core/const';
-import { Versions } from './models/versions';
+import {app} from './app';
+import {CURRENT_DB_VERSION} from './core/const';
+import {Versions} from './models/versions';
 
 /**
  * Normalize a port into a number, string, or false.
@@ -28,7 +28,7 @@ function normalizePort(val): number | string | false {
 }
 
 // check if the db is initialized
-Versions.findOne({ where: { type: 1 } })
+Versions.findOne({where: {type: 1}})
     .then((v) => {
         if (!v || v.version !== CURRENT_DB_VERSION) {
             throw new Error(
